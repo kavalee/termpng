@@ -1,4 +1,0 @@
-a.out: render.c
-	gcc render.c
-run: a.out
-	./a.out
