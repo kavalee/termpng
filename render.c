@@ -1,10 +1,13 @@
 #include <png.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <curses.h>
-int main(){
-  FILE* fp = fopen("emoji.png", "rb");
+
+int main(int argc, char** argv){
+  if(argc < 2){
+    printf("Syntax:termpng filename.png -pattern\n");
+    return 1;
+  }
+  FILE* fp = fopen(argv[1], "rb");
   if(!fp){
     printf("Can not open file \n");
     return 1;
@@ -58,9 +61,12 @@ int main(){
   for(int y = 0; y < height; y++){
     row_pointers[y] = png_get_rows(png_ptr, info_ptr)[y];
   }
-
-
-  //initscr();
+  char* pattern = "█";
+  for(int i = 0; i < argc; i++){
+    if(argv[i][0] == '-'){
+      pattern = argv[i] + 1;
+    }
+  }
   for(int y = 0; y < height; y++){
     printf("\n");
     for(int x = 0; x < width * 3; x += 3){
@@ -68,15 +74,12 @@ int main(){
       r =(int) row_pointers[y][x];
       g = (int) row_pointers[y][x + 1];
       b =(int) row_pointers[y][x + 2];
-      //printf("\x1b]4;rgb:%2.2x/%2.2x/%2.2x\x1b\\",r,g,b);
-      //printf("\x1b[48;5;rgb; %dm",r,g,b);
       printf("\x1b[38;2;%d;%d;%dm",r,g,b);
-      printf("#");
+      printf("%s",pattern);
       printf("\x1b[0m");
     }
   }
-  //endwin();
+  printf("\n");
  
-  printf("Exiting without error\n");
   return 0;
 }

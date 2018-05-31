@@ -1,4 +1,4 @@
-a.out: render.c
-	gcc render.c -lpng
-run: a.out
-	./a.out
+termpng: render.c
+	gcc render.c -lpng -o termpng
+run: termpng
+	./termpng 
