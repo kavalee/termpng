@@ -5,8 +5,8 @@ Display pngs in the terminal
 - gcc
 - make
 - libpng-devel
-**Instalation**
 
+**Installation**
 - clone repo
 - run `make` in cloned repo
 - run `sudo cp termpng /usr/bin/`
