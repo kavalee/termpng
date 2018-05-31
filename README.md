@@ -12,4 +12,5 @@ Display pngs in the terminal
 - run `sudo cp termpng /usr/bin/`
 
 **Syntax**
+
 `termpng filename.png -pattern`
