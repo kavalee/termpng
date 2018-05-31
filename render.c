@@ -79,7 +79,12 @@ int main(int argc, char** argv){
       printf("\x1b[0m");
     }
   }
+  
   printf("\n");
- 
+  fclose(fp);
+  for(int y = 0; y < height; y++){
+    free(row_pointers[y]);
+  }
+  
   return 0;
 }
