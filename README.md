@@ -1,5 +1,5 @@
 # termpng
-Display pngs in the terminal
+Print pngs to the terminal
 
 **Dependancies**
 - gcc
