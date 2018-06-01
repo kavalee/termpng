@@ -61,7 +61,7 @@ int main(int argc, char** argv){
   for(int y = 0; y < height; y++){
     row_pointers[y] = png_get_rows(png_ptr, info_ptr)[y];
   }
-  char* pattern = "█";
+  char* pattern = "██";
   for(int i = 0; i < argc; i++){
     if(argv[i][0] == '-'){
       pattern = argv[i] + 1;
